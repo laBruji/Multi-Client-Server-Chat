@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
     int server_fd, new_socket; 
     struct sockaddr_in address; 
     int addrlen = sizeof(address); 
-    char msg[1024] = {0}; //what does this mean?
+    char msg[1024] = {0}; 
     
     // Creating socket file 
     server_fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -27,7 +27,7 @@ int main(int argc, char const *argv[])
     address.sin_addr.s_addr = htonl(INADDR_ANY); 
     address.sin_port = htons(PORT); 
        
-    int b_status = bind(server_fd, (struct sockaddr *)&address,
+    int b_status = ::bind(server_fd, (struct sockaddr *)&address,
 			    sizeof(address));
     if(b_status < 0)
     {
